@@ -1,0 +1,32 @@
+class Employee:
+    salary=10000
+    def __init__(self,name,id,city,J_year,dept):
+        self.name =name
+        self.id= id
+        self.city = city
+        self.J_year= J_year
+        self.dept = dept
+    @classmethod
+    def emp_details(cls, data):
+        name, id, city, J_year, dept = data.split(",") #split by comma
+        return cls(name, id, city, J_year,dept) # "cls" will call the class 
+    @staticmethod
+    def office(products):
+        products_items=['samsung','mi']
+        if products in products_items:
+            return "available"
+        return "not available"
+emp1 = Employee('santhosh',123,'chennai', 1998,'designing')
+emp2 = Employee('sakthi', 456, 'chennai', 1999,'testing')
+
+data='raja,309,chennai,1996,coding'
+emp3=Employee.emp_details(data) #calling the class method
+
+print(emp1.office('mi')) #to access the static method
+print(emp3.name)
+print(emp1.name)
+print(emp1.dept)
+print(Employee.salary)
+print(emp2.name)
+print(emp2.dept)
+print(Employee.salary)
